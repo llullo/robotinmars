@@ -1,0 +1,14 @@
+C:\Users\lhernang\source\repos\robotinmars\RobotsInMars\bin\Debug\netcoreapp3.1\RobotsInMars.exe
+C:\Users\lhernang\source\repos\robotinmars\RobotsInMars\bin\Debug\netcoreapp3.1\RobotsInMars.deps.json
+C:\Users\lhernang\source\repos\robotinmars\RobotsInMars\bin\Debug\netcoreapp3.1\RobotsInMars.runtimeconfig.json
+C:\Users\lhernang\source\repos\robotinmars\RobotsInMars\bin\Debug\netcoreapp3.1\RobotsInMars.runtimeconfig.dev.json
+C:\Users\lhernang\source\repos\robotinmars\RobotsInMars\bin\Debug\netcoreapp3.1\RobotsInMars.dll
+C:\Users\lhernang\source\repos\robotinmars\RobotsInMars\bin\Debug\netcoreapp3.1\RobotsInMars.pdb
+C:\Users\lhernang\source\repos\robotinmars\RobotsInMars\obj\Debug\netcoreapp3.1\RobotsInMars.csproj.AssemblyReference.cache
+C:\Users\lhernang\source\repos\robotinmars\RobotsInMars\obj\Debug\netcoreapp3.1\RobotsInMars.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lhernang\source\repos\robotinmars\RobotsInMars\obj\Debug\netcoreapp3.1\RobotsInMars.AssemblyInfoInputs.cache
+C:\Users\lhernang\source\repos\robotinmars\RobotsInMars\obj\Debug\netcoreapp3.1\RobotsInMars.AssemblyInfo.cs
+C:\Users\lhernang\source\repos\robotinmars\RobotsInMars\obj\Debug\netcoreapp3.1\RobotsInMars.csproj.CoreCompileInputs.cache
+C:\Users\lhernang\source\repos\robotinmars\RobotsInMars\obj\Debug\netcoreapp3.1\RobotsInMars.dll
+C:\Users\lhernang\source\repos\robotinmars\RobotsInMars\obj\Debug\netcoreapp3.1\RobotsInMars.pdb
+C:\Users\lhernang\source\repos\robotinmars\RobotsInMars\obj\Debug\netcoreapp3.1\RobotsInMars.genruntimeconfig.cache
