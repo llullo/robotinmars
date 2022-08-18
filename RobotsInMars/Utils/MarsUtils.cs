@@ -45,7 +45,7 @@ namespace RobotsInMars.Utils
                     (int.Parse(robotPosition[0]) >= 0 && int.Parse(robotPosition[1]) >= 0)) isValidPosition = true;
             }
 
-            switch (robotPosition[3])
+            switch (robotPosition[2])
             {
                 case "N":
                 case "E":
