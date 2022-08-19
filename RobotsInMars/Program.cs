@@ -79,6 +79,7 @@ namespace RobotsInMars
         {
             Console.WriteLine("Now enter the sequence of instructions you want the robot to follow");
             string instructions = Console.ReadLine().Trim().ToUpper();
+            if (instructions.Length >= 100) return;
             bool addedValidCoordenate = false;
 
             for (int i = 0; i < instructions.Length; i++)
