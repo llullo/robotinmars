@@ -38,7 +38,7 @@ namespace RobotsInMars.Utils
             bool isValidOrientation = false;
             bool isValidPosition = false;
 
-            if ((int.TryParse(coordinates[0], out _)) && (int.TryParse(coordinates[1], out _)))
+            if ((int.TryParse(robotPosition[0], out _)) && (int.TryParse(robotPosition[1], out _)))
             {
                 if ((int.Parse(robotPosition[0]) <= int.Parse(coordinates[0]) &&
                     int.Parse(robotPosition[1]) <= int.Parse(coordinates[1])) &&

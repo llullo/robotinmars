@@ -24,20 +24,20 @@ namespace RobotsInMars
                 else if (_robot.Orientation == null || _robot.Orientation.Length == 0)
                 {
                     ReadRobotPosition();
+                } else
+                {
+                    ReadRobotInstructions();
                 }
-
-                ReadRobotInstructions();
-                _listOfRobots.Add(_robot);
-                _robot = new Robot();
-                Console.WriteLine("Do you want to program another robot(any key), list all the robots and program another(L) or exit(E)?");
-                string nextMoveConsole = Console.ReadLine();
+                            
+                Console.WriteLine("Do you want to program another robot / put the correct coordenates(any key), list all the robots(L) or exit(E)?");
+                string nextMoveConsole = Console.ReadLine().ToUpper();
 
                 switch (nextMoveConsole)
                 {
-                    case "L":
+                    case "L":                    
                         ListAllRobots();
                         break;
-                    case "E":
+                    case "E":                    
                         continueLoop = false;
                         break;
                     default:
@@ -50,9 +50,8 @@ namespace RobotsInMars
         {
             string consoleValue;
             Console.WriteLine("Welcome to Mars! please put the maximum coordinates");
-            consoleValue = Console.ReadLine();
-            Console.WriteLine(consoleValue);
-            string[] splittedConsoleValue = consoleValue.Split(" ");
+            consoleValue = Console.ReadLine().TrimEnd().TrimStart().ToUpper();
+            string[] splittedConsoleValue = consoleValue.TrimEnd().TrimStart().Split(" ", StringSplitOptions.RemoveEmptyEntries);
 
             if (MarsUtils.CheckValidCoordinates(splittedConsoleValue) && consoleValue.Length < 100)
             {
@@ -64,8 +63,8 @@ namespace RobotsInMars
         private static void ReadRobotPosition()
         {
             Console.WriteLine("Now enter the position of the robot");
-            string robotPosition = Console.ReadLine();
-            string[] splittedRobotPosition = robotPosition.Split(" ");
+            string robotPosition = Console.ReadLine().TrimEnd().TrimStart().ToUpper();
+            string[] splittedRobotPosition = robotPosition.Split(" ", StringSplitOptions.RemoveEmptyEntries);
 
             if (MarsUtils.CheckValidRobotPosition(splittedRobotPosition, _coordinates) && robotPosition.Length < 100)
             {
@@ -79,7 +78,8 @@ namespace RobotsInMars
         private static void ReadRobotInstructions()
         {
             Console.WriteLine("Now enter the sequence of instructions you want the robot to follow");
-            string instructions = Console.ReadLine();
+            string instructions = Console.ReadLine().Trim().ToUpper();
+            bool addedValidCoordenate = false;
 
             for (int i = 0; i < instructions.Length; i++)
             {
@@ -92,12 +92,19 @@ namespace RobotsInMars
                         _robot.MoveRight();
                         break;
                     case 'F':
-                        _robot.MoveForward();
+                        _robot.MoveForward(_lastValidsCoordenates);
+                        _robot.CheckValidPosition(_coordinates);
+                        if (_robot.IsLost && !addedValidCoordenate) {
+                            AddLastValidCoordenate(_robot);
+                            addedValidCoordenate = true;
+                            };
                         break;
                     default:
                         break;
-                }
+                }               
             }
+            _listOfRobots.Add(_robot);
+            _robot = new Robot();
         }
 
         private static void AddLastValidCoordenate(Robot robot)
@@ -121,16 +128,20 @@ namespace RobotsInMars
                     break;
             }
 
-            _lastValidsCoordenates.Add(coordinateX + "," + coordinateY);
+            _lastValidsCoordenates.Add(coordinateX + "," + coordinateY  + "," + robot.Orientation);
         }
 
         private static void ListAllRobots()
         {
             foreach (Robot robot in _listOfRobots)
             {
-                string robotMessage = _robot.CoordinateX + " " + _robot.CoordinateY + " " + _robot.Orientation + (_robot.IsLost ? " LOST" : "");
+                string robotMessage = robot.CoordinateX + " " + robot.CoordinateY + " " + robot.Orientation + (robot.IsLost ? " LOST" : "");
                 Console.WriteLine(robotMessage);
             }
+
+            Console.WriteLine("Do you want to exit? (E) or program another robot?(any key)");
+            string consoleValue = Console.ReadLine();
+            if (consoleValue.ToUpper().Equals("E")) Environment.Exit(0);
         }
 
 

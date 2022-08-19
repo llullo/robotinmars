@@ -52,9 +52,22 @@ namespace RobotsInMars.Models
             }
         }
 
-        public void MoveForward()
+        public void MoveForward(List<string> lastValidCoordinates)
         {
+            bool stopAdvance = false;
+            foreach (string validCoordinate in lastValidCoordinates)
+            {
+                int validCoordinateX = int.Parse(validCoordinate.Split(",")[0]);
+                int validCoordinateY = int.Parse(validCoordinate.Split(",")[1]);
 
+                if (CoordinateX == validCoordinateX && CoordinateY == validCoordinateY && Orientation == validCoordinate.Split(",")[2])
+                {
+                    stopAdvance = true;
+                    break;
+                }
+            }
+
+            if (stopAdvance) return;
             switch (Orientation)
             {
                 case "N":
